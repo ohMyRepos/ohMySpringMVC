@@ -10,8 +10,28 @@
     <!-- load-on-startup is an order -->
     <load-on-startup>0</load-on-startup>
   </servlet>
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--关联一个springmvc的配置文件:【servlet-name】-servlet.xml-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc-servlet.xml</param-value>
+    </init-param>
+    <!--启动级别-1-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!--  -->
+
   <servlet-mapping>
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <!--/ 匹配所有的请求；（不包括.jsp）-->
+  <!--/* 匹配所有的请求；（包括.jsp）-->
+  <servlet-mapping>
+      <servlet-name>springmvc</servlet-name>
+      <url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>
