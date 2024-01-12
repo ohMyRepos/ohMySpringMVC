@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HiController {
     @RequestMapping("hi")
     public String hi(Model model) {
-        model.addAttribute("msg", "Hi, SpringMVC: ");
+        model.addAttribute("msg", "Hi, SpringMVC");
         return "hello"; // 这个就是view的名字
+    }
+
+    @RequestMapping("intercepted")
+    @ResponseBody
+    public String intercepted() {
+        return "You've been intercepted";
     }
 
     @RequestMapping(value = "json", produces = "application/json; charset=utf8")
