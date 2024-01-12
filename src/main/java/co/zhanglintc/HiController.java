@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HiController {
     @RequestMapping("hi")
-    public String hi(String name, Model model) {
-        model.addAttribute("msg", "Hi, SpringMVC: " + name);
+    public String hi(Model model) {
+        model.addAttribute("msg", "Hi, SpringMVC: ");
         return "hello"; // 这个就是view的名字
     }
 

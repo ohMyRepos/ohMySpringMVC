@@ -13,6 +13,12 @@
   <context:component-scan base-package="co.zhanglintc"/>
   <mvc:default-servlet-handler/>
   <mvc:annotation-driven/>
+  <mvc:interceptors>
+    <mvc:interceptor>
+      <mvc:mapping path="/**"/>
+      <bean class="co.zhanglintc.config.MyInterceptor"/>
+    </mvc:interceptor>
+  </mvc:interceptors>
 
   <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
